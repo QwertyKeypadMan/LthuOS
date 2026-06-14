@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>CosmosMiniOS</AssemblyName>
+        <RootNamespace>CosmosMiniOS</RootNamespace>
+        <!--<RuntimeIdentifier>cosmos</RuntimeIdentifier>-->
+        <Platform>cosmos</Platform>
+        <LangVersion>10.0</LangVersion>
+        <SupportsX86Intrinsics>false</SupportsX86Intrinsics>
+        <SelfContained>True</SelfContained>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DebugEnabled>False</DebugEnabled>
+        <DebugCom>0</DebugCom>
+        <EnableGDB>False</EnableGDB>
+        <StartCosmosGDB>False</StartCosmosGDB>
+        <VisualStudioDebugPort>Pipe: Cosmos\Serial</VisualStudioDebugPort>
+        <CosmosDebugPort>Serial: COM1</CosmosDebugPort>
+        <Launch>VMware</Launch>
+        <Profile>VMware</Profile>
+        <Description>Use VMware Player or Workstation to deploy and debug.</Description>
+        <PxeInterface>192.168.0.8</PxeInterface>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\cursor .bmp" />
+      <None Remove="Resources\cursor.bmp" />
+      <None Remove="Resources\cursor1.bmp" />
+      <None Remove="Resources\font.bmp" />
+      <None Remove="Resources\start.bmp" />
+      <None Remove="Resources\w1.bmp" />
+      <None Remove="Resources\w2.bmp" />
+      <None Remove="Resources\wallpaper.bmp" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ApplicationDefinition Include="Resources\cursor .bmp" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Cosmos.Build" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Common" Version="0.1.0-localbuild20221121060004" />
+        <PackageReference Include="Cosmos.Core" Version="0.1.0-localbuild20221121060004" />
+        <PackageReference Include="Cosmos.Debug.Kernel" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.HAL2" Version="0.1.0-localbuild20221121060004" />
+        <PackageReference Include="Cosmos.Kernel.System" Version="3.0.58" />
+        <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="IL2CPU.API" Version="0.1.0-localbuild20221121060004" />
+    </ItemGroup>
+
+    <!-- LunarLabs.Fonts sadece normal (non-cosmos) derlemelerde gerekli -->
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\files.bmp">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\apps.bmp">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <Content Include="Resources\about.bmp">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\cursor.bmp" />
+      <EmbeddedResource Include="Resources\font.bmp" />
+      <EmbeddedResource Include="Resources\start.bmp" />
+      <EmbeddedResource Include="Resources\w1.bmp" />
+      <EmbeddedResource Include="Resources\w2.bmp" />
+      <EmbeddedResource Include="Resources\wallpaper.bmp" />
+      <EmbeddedResource Include="Resources\about.bmp" />
+	</ItemGroup>
+</Project>
